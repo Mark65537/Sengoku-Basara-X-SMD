@@ -23,8 +23,8 @@ int main()
 
 	init();
 
-	PAL_setPalette(PAL3, spr_yuk.palette->data, DMA);
-    spr_san = SPR_addSprite(&spr_yuk, 0,  0, TILE_ATTR(PAL3, 0, FALSE, FALSE));
+	PAL_setPalette(PAL0, spr_yuk.palette->data, DMA);
+    spr_san = SPR_addSprite(&spr_yuk, 0,  0, TILE_ATTR(PAL0, 0, FALSE, FALSE));
 	while(1)
 	{   
 		SPR_update();
