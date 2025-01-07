@@ -1,11 +1,14 @@
 #include <genesis.h>
 #include "gfx.h"
+#include "sprites.h"
+
+Sprite* spr_san;
 
 void init(){
 	    
     VDP_init();// Инициализация SGDK
-	// Загрузка изображения в VRAM
-     // VDP_drawImageEx(BG_B, &main_bg, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, 0), 0, 0, FALSE, TRUE);
+	JOY_init();//Initialize joypad 
+	SPR_init();//Initialize sprite engine in order to use them
 }
 
 void update(){
@@ -20,8 +23,12 @@ int main()
 
 	init();
 
+	PAL_setPalette(PAL3, spr_yuk.palette->data, DMA);
+    spr_san = SPR_addSprite(&spr_yuk, 0,  0, TILE_ATTR(PAL3, 0, FALSE, FALSE));
 	while(1)
-	{        
+	{   
+		SPR_update();
+        SYS_doVBlankProcess();     
 		update();
 	}
 	return (0);

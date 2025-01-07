@@ -1,0 +1,1 @@
+SPRITE spr_yuk "sprites/standing animation.png" 11 15 FAST 0
